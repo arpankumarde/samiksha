@@ -65,13 +65,12 @@ interface EvaluationDoc {
 }
 
 const getScoreColor = (score: number) => {
-  if (score >= 85) return "text-green-600";
+  if (score >= 85) return "text-green-700";
   if (score >= 70) return "text-yellow-600";
 };
 
 const getScoreVariant = (score: number) => {
-  if (score >= 85) return "default";
-  if (score >= 70) return "secondary";
+  if (score >= 70) return "outline";
   return "destructive";
 };
 
@@ -188,21 +187,23 @@ const Page = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50 p-4">
         <div className="max-w-7xl mx-auto space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200">
+            <Card className="bg-gradient-to-r from-orange-50 to-orange-100 border-orange-200">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-blue-800">
+                <CardTitle className="text-sm font-medium text-orange-800">
                   Total Evaluations
                 </CardTitle>
-                <FileVideoIcon className="h-4 w-4 text-blue-600" />
+                <FileVideoIcon className="h-4 w-4 text-orange-600" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-blue-900">
+                <div className="text-2xl font-bold text-orange-900">
                   {evaluations.length}
                 </div>
-                <p className="text-xs text-blue-600">Presentations analyzed</p>
+                <p className="text-xs text-orange-600">
+                  Presentations analyzed
+                </p>
               </CardContent>
             </Card>
 
@@ -223,18 +224,18 @@ const Page = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-r from-purple-50 to-purple-100 border-purple-200">
+            <Card className="bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-200">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-purple-800">
+                <CardTitle className="text-sm font-medium text-yellow-800">
                   Progress Trend
                 </CardTitle>
-                <TrendUpIcon className="h-4 w-4 text-purple-600" />
+                <TrendUpIcon className="h-4 w-4 text-yellow-600" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-purple-900">
+                <div className="text-2xl font-bold text-yellow-900">
                   {evaluations.length > 0 ? "↗" : "—"}
                 </div>
-                <p className="text-xs text-purple-600">Keep improving!</p>
+                <p className="text-xs text-yellow-600">Keep improving!</p>
               </CardContent>
             </Card>
           </div>
@@ -286,7 +287,7 @@ const Page = () => {
                 </p>
                 <Button
                   onClick={() => router.push("/dashboard/evaluate")}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                  className="bg-gradient-to-br from-orange-600 to-yellow-500 hover:from-orange-700 hover:to-yellow-500"
                 >
                   <PlayIcon className="w-4 h-4 mr-2" />
                   Create First Evaluation
@@ -303,7 +304,7 @@ const Page = () => {
                   Your Evaluations
                 </h2>
                 <Button
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                  className="bg-gradient-to-br from-orange-600 to-yellow-500 hover:from-orange-700 hover:to-yellow-500"
                   asChild
                 >
                   <Link href="/dashboard/evaluate">
@@ -362,7 +363,10 @@ const Page = () => {
                               </span>
                             </div>
 
-                            <Progress value={overallScore} className="h-2" />
+                            <Progress
+                              value={overallScore}
+                              className="h-2 bg-orange-300/50"
+                            />
 
                             <div className="flex items-center justify-between pt-2">
                               <Badge variant="outline" className="text-xs">
@@ -371,7 +375,7 @@ const Page = () => {
 
                               <Button
                                 size="sm"
-                                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                                className="bg-gradient-to-tr from-orange-600 to-yellow-500 hover:from-orange-700 hover:to-yellow-500"
                               >
                                 <EyeIcon className="w-4 h-4 mr-1" />
                                 View Details

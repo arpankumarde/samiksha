@@ -152,10 +152,10 @@ const Page = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50 p-4">
         <div className="max-w-4xl mx-auto space-y-6">
           <div className="text-center space-y-2">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold bg-gradient-to-tr from-orange-600 to-yellow-500 bg-clip-text text-transparent">
               Presentation Evaluator
             </h1>
             <p className="text-lg text-slate-600">
@@ -165,10 +165,10 @@ const Page = () => {
           </div>
 
           {/* Upload Section */}
-          <Card className="border-2 border-dashed border-slate-300 hover:border-blue-400 transition-colors">
+          <Card className="border-2 border-dashed border-slate-300 hover:border-orange-400 transition-colors">
             <CardHeader className="text-center">
               <CardTitle className="flex items-center justify-center gap-2">
-                <UploadIcon className="w-6 h-6 text-blue-600" />
+                <UploadIcon className="w-6 h-6 text-orange-600" />
                 Upload Presentation File
               </CardTitle>
               <CardDescription>
@@ -186,8 +186,8 @@ const Page = () => {
               </div>
 
               {selectedFile && (
-                <div className="flex items-center justify-center gap-2 p-3 bg-blue-50 rounded-lg">
-                  <FileVideoIcon className="w-5 h-5 text-blue-600" />
+                <div className="flex items-center justify-center gap-2 p-3 bg-orange-50 rounded-lg">
+                  <FileVideoIcon className="w-5 h-5 text-orange-600" />
                   <span className="text-sm font-medium">
                     Selected: {selectedFile.name}
                   </span>
@@ -198,7 +198,7 @@ const Page = () => {
                 <Button
                   onClick={sendFileToGemini}
                   disabled={!selectedFile || isLoading}
-                  className="px-8 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                  className="px-8 py-2 bg-gradient-to-br from-orange-600 to-yellow-500 hover:from-orange-700 hover:to-yellow-500"
                 >
                   {isLoading ? (
                     <div className="flex items-center gap-2">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { CheckCircleIcon, StarIcon } from "@phosphor-icons/react/dist/ssr";
 import {
   Card,
@@ -53,13 +53,12 @@ interface Presentation {
 }
 
 const getScoreColor = (score: number) => {
-  if (score >= 85) return "text-green-600";
+  if (score >= 85) return "text-green-700";
   if (score >= 70) return "text-yellow-600";
 };
 
 const getScoreVariant = (score: number) => {
-  if (score >= 85) return "default";
-  if (score >= 70) return "secondary";
+  if (score >= 70) return "outline";
   return "destructive";
 };
 
@@ -106,7 +105,7 @@ const getEvaluationCriteria = (
   }
 };
 
-const Page = () => {
+const PageInn = () => {
   const searchParams = useSearchParams();
   const evId = searchParams.get("evId");
 
@@ -158,14 +157,13 @@ const Page = () => {
 
   return (
     <>
-
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50 p-4">
         <div className="max-w-4xl mx-auto space-y-6">
           {isLoading && (
             <Card>
               <CardContent className="flex items-center justify-center py-8">
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-6 h-6 border-2 border-orange-600 border-t-transparent rounded-full animate-spin"></div>
                   <span className="text-slate-600">
                     Loading evaluation results...
                   </span>
@@ -207,7 +205,7 @@ const Page = () => {
               </Card>
 
               {/* Overall Score */}
-              <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+              <Card className="bg-gradient-to-r from-orange-50 to-yellow-50 border-orange-200">
                 <CardHeader className="text-center">
                   <CardTitle className="flex items-center justify-center gap-2 text-2xl">
                     <StarIcon className="w-6 h-6 text-yellow-500" />
@@ -223,7 +221,7 @@ const Page = () => {
                   </div>
                   <Progress
                     value={overallScore}
-                    className="w-full max-w-md mx-auto mt-4"
+                    className="w-full max-w-md mx-auto mt-4 bg-orange-300/50"
                   />
                 </CardHeader>
               </Card>
@@ -268,7 +266,10 @@ const Page = () => {
                                 </span>
                               </Badge>
                             </div>
-                            <Progress value={param.score} className="h-2" />
+                            <Progress
+                              value={param.score}
+                              className="h-2 bg-orange-300/50"
+                            />
                             <p className="text-sm text-slate-600 mt-2">
                               {param.feedback}
                             </p>
@@ -321,4 +322,11 @@ const Page = () => {
   );
 };
 
+const Page = () => {
+  return (
+    <Suspense>
+      <PageInn />
+    </Suspense>
+  );
+};
 export default Page;
