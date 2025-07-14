@@ -97,19 +97,19 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "hello@samiksha.ai",
+      content: "samiksha@growsoc.com",
       description: "Send us an email anytime",
     },
     {
       icon: Phone,
       title: "Phone",
-      content: "+1 (555) 123-4567",
+      content: "+91 90000 00000",
       description: "Mon-Fri from 8am to 5pm",
     },
     {
       icon: MapPin,
       title: "Office",
-      content: "123 AI Street, Tech City, TC 12345",
+      content: "Kolkata, India",
       description: "Come say hello at our office",
     },
     {
